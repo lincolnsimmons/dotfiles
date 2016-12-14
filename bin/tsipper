@@ -1,0 +1,64 @@
+#!/bin/bash
+#
+# This script is intended to parse tsip's CSV output logs and spit out an average
+# of the log's columns.
+#
+# You may change the timeframe which is averaged by adjusting the regex in the
+# first awk command.
+
+if [ $# -gt 2 ]
+then
+    echo "Usage: tsipper [<tsip_log.csv>]"
+    exit 0
+fi
+
+echo "Percent Reads,Transfer Size,Queue Depth,Write BW,Read BW,Write IOPS,Read IOPS,Avg Response,Max Response"
+
+if [ $# -eq 1 ]
+then
+    # Just average the single file provided
+	PR=`echo $1 | cut -d "_" -f3`
+	XS=`echo $1 | cut -d "_" -f5`
+	QD=`echo $1 | cut -d "_" -f6 | sed 's/[^0-9]//g'`
+	echo -n $PR,
+	echo -n $XS,
+	echo -n $QD,
+	awk '/^00:00:02|^00:00:03/' $1 | awk 'BEGIN { FS=",";WB=0;RB=0;W=0;R=0;AR=0;MR=0; } \
+                                                    { WB+=$2;RB+=$3;W+=$4;R+=$5;AR+=$6;MR+=$7; } \
+                                                END { printf "%f,%f,%f,%f,%f,%f,%f,%f\n", \
+						      WB/NR,RB/NR,(WB/NR+RB/NR),W/NR,R/NR,(W/NR+R/NR),AR/NR,MR/NR}'
+    exit 0
+fi
+
+for file in $(ls *.csv); 
+do
+	PR=`echo $file | cut -d "_" -f4`
+	XS=`echo $file | cut -d "_" -f6`
+	QD=`echo $file | cut -d "_" -f7 | sed 's/[^0-9]//g'`
+	echo -n $PR,
+	echo -n $XS,
+	echo -n $QD,
+	awk '/^00:00:02|^00:00:03/' $file | awk 'BEGIN { FS=",";WB=0;RB=0;W=0;R=0;AR=0;MR=0; } \
+                                                       { WB+=$2;RB+=$3;W+=$4;R+=$5;AR+=$6;MR+=$7; } \
+                                                   END { printf "%f,%f,%f,%f,%f,%f,%f,%f\n", \
+							 WB/NR,RB/NR,(WB/NR+RB/NR),W/NR,R/NR,(W/NR+R/NR),AR/NR,MR/NR}'
+done;
+
+echo ""
+echo "Reaveraging the '*Formatted' Files..."
+for file in $(ls *Formatted*); 
+do
+	PR=`echo $file | cut -d "_" -f4`
+	XS=`echo $file | cut -d "_" -f6`
+	QD=`echo $file | cut -d "_" -f7 | sed 's/[^0-9]//g'`
+	echo -n $PR,
+	echo -n $XS,
+	echo -n $QD,
+	# For these two minute runs, average the middle minute (Second 30 through 90)
+	awk '/^00:00:00:3|^00:00:00:4|^00:00:00:5|^00:00:01:0|^00:00:01:1|^00:00:01:2/' $file | \
+		awk 'BEGIN { FS=",";WB=0;RB=0;W=0;R=0;AR=0;MR=0; } \
+                           { WB+=$2;RB+=$3;W+=$4;R+=$5;AR+=$6;MR+=$7; } \
+                       END { printf "%f,%f,%f,%f,%f,%f,%f,%f\n", \
+							 WB/NR,RB/NR,(WB/NR+RB/NR),W/NR,R/NR,(W/NR+R/NR),AR/NR,MR/NR}'
+done;
+

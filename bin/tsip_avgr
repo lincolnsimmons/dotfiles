@@ -1,0 +1,31 @@
+#!/bin/gawk
+
+BEGIN {
+	FS=","
+	WB = 0
+	RB = 0
+	W = 0
+	R = 0
+ 	AR = 0
+	MR = 0
+}
+
+{
+	WB += $2
+	RB += $3
+	W += $4
+	R += $5
+ 	AR += $6
+	MR += $7
+}
+
+END {
+        WB = WB/NR
+        RB = RB/NR
+        W = W/NR
+        R = R/NR
+        AR = AR/NR
+        MR = MR/NR
+
+	print "%f,%f,%f,%f,%f,%f", WB, RB, W, R, AR, MR
+}
