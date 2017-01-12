@@ -1,6 +1,6 @@
 [user]
     name = Lincoln Simmons
-    email = lincolns@us.ibm.com
+    email = lincolnsimmons@gmail.com
 [color]
     ui = auto
 [alias]
@@ -9,10 +9,3 @@
 [core]
     editor = vim
 	excludesfile = /home/lincoln/.gitignore
-[http]
-    sslCAPath = /etc/pki/tls/certs
-    sslVerify = false
-[credential "https://jira.tms.stglabs.ibm.com"]
-    username = lincolns@us.ibm.com
-[push]
-	default = simple
