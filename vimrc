@@ -42,8 +42,3 @@ map <C-K>   <C-W>k
 " Only scroll 1 line at a time when holding shift and using the mouse wheel
 map <S-MouseDown>   <C-Y>
 map <S-MouseUp>     <C-E>
-
-map <F1>   :r   $HOME/.vim/templates/function_header.c<CR><CR>
-map <F2> 1G:r   $HOME/.vim/templates/file_header.c<CR><CR>1G
-map <F9>   :new $HOME/.vimrc<CR>  " edit .vimrc
-map <F12>  :so  $HOME/.vimrc<CR>  " source .vimrc
