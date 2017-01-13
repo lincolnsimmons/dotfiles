@@ -27,7 +27,8 @@ HISTFILESIZE=2000
 
 export GIT_PS1_SHOWCOLORHINTS=1
 source ~/bin/git-prompt.sh
-PROMPT_COMMAND='__git_ps1 "\[\e[1;34m\]\u@\h\[\e[0m\]:\[\e[1;32m\]\w\[\e[0m\]" " \$ "'
+#PROMPT_COMMAND='__git_ps1 "\[\e[1;34m\]\u@\h\[\e[0m\]:\[\e[1;32m\]\w\[\e[0m\]" " \$ "'
+PROMPT_COMMAND='__git_ps1 "\[\e[1;30m\]\u@\h\[\e[0m\]:\[\e[1;32m\]\w\[\e[0m\]" " \$ "'
 
 # User specific aliases and functions
 
