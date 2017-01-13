@@ -21,7 +21,7 @@ set noswapfile
 set nobackup
 set nowrap
 set hidden
-set bs=indent,eol,start " allow backspacing over anything 
+set bs=indent,eol,start " allow backspacing over anything
 
 "let &tags = findfile("tags", "**;/space")
 set tags=tags
