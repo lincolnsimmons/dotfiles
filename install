@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "This will overwrite any dotfiles you already have!"
+echo "CTRL+C out of this in the next 5 seconds if you want to abort..."
+
+sleep 5
+
+for f in *; do
+	# Exlude this install file and README
+	if [ $f != $(basename $0) ] || [ $f == "README.md" ]
+	then
+        # Do not append the '.' to bin dir
+        if [ $f == "bin" ]
+        then
+            ln -sf $(pwd)/$f ~/$f
+        else
+            ln -sf $(pwd)/$f ~/.$f
+        fi
+	fi
+done
