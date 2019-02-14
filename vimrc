@@ -28,8 +28,6 @@ if has("autocmd")
   autocmd BufEnter *.[^ch] set autoindent
 endif
 
-vmap bl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-
 " --------------------- KEY MAPPINGS ------------------------
 map <C-J>   <C-W>j
 map <C-K>   <C-W>k
