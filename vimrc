@@ -1,7 +1,3 @@
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
 " Enable pathogen plugin manager
 " This allows you to install plugins into their own private directory in ~/.vim/bundle
 " https://github.com/tpope/vim-pathogen
@@ -23,8 +19,7 @@ set nowrap
 set hidden
 set bs=indent,eol,start " allow backspacing over anything
 
-"let &tags = findfile("tags", "**;/space")
-set tags=tags
+set tags=tags;
 set tabstop=4
 set shiftwidth=4
 set expandtab
