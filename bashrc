@@ -54,3 +54,6 @@ alias ff='find -iname'
 
 # Don't attempt to GUI prompt for passwords
 unset SSH_ASKPASS
+
+# Source fuzzy finder tool
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
