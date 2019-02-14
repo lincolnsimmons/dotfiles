@@ -28,6 +28,9 @@ if has("autocmd")
   autocmd BufEnter *.[^ch] set autoindent
 endif
 
+" Add fzf to runtime path
+set rtp+=~/.fzf
+
 " --------------------- KEY MAPPINGS ------------------------
 map <C-J>   <C-W>j
 map <C-K>   <C-W>k
@@ -35,3 +38,6 @@ map <C-K>   <C-W>k
 " Only scroll 1 line at a time when holding shift and using the mouse wheel
 map <S-MouseDown>   <C-Y>
 map <S-MouseUp>     <C-E>
+
+" Map ; to fzf :Files command
+map ; :FZF<CR>
