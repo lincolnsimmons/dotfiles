@@ -10,6 +10,11 @@ filetype plugin indent on
 
 colorscheme jellybeans
 
+" Lightline pluging options
+let g:lightline = {
+    \ 'colorscheme': 'jellybeans',
+    \ }
+
 set cscopetag
 set nocompatible ruler laststatus=2 showcmd showmode number
 set incsearch ignorecase smartcase hlsearch
