@@ -1,13 +1,9 @@
 /**
- * <Short Description>
+ * @brief Short description of function
  *
- * <Long Description>
- * <Can extend multiple lines>
+ * Extended description of function
+ * May extend multiple lines
  *
- * <Or multiple paragraphs>
- * <And should explain anything tricky about this function>
- *
- * @param  param1_name (IN) Description of input param
- * @param  param2_name (OUT) Description of output param
+ * @param  param_name Description of input param
  * @return Description of the return value
  */
