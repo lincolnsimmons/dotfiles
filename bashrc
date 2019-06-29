@@ -12,6 +12,7 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+export PATH=/usr/local/go/bin:$PATH
 export PATH=~/bin/:$PATH
 export EDITOR=vim
 export PAGER=less
