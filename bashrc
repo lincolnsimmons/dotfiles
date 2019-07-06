@@ -12,7 +12,9 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-export PATH=/usr/local/go/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH # Golang
+export PATH=~/.cargo/bin:$PATH      # Rust (cargo)
+export PATH=~/.local/bin:$PATH      # Python (pip)
 export PATH=~/bin/:$PATH
 export EDITOR=vim
 export PAGER=less
