@@ -28,10 +28,10 @@ HISTCONTROL=ignoreboth
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-export GIT_PS1_SHOWCOLORHINTS=1
-source ~/bin/git-prompt.sh
-#PROMPT_COMMAND='__git_ps1 "\[\e[1;34m\]\u@\h\[\e[0m\]:\[\e[1;32m\]\w\[\e[0m\]" " \$ "'
-PROMPT_COMMAND='__git_ps1 "\[\e[1;30m\]\u@\h\[\e[0m\]:\[\e[1;32m\]\w\[\e[0m\]" " \$ "'
+git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+export PS1="\[\e[1;30m\]\u@\h\[\e[0m\]:\[\e[1;32m\]\w\[\e[0m\]\$(git_branch) \$ "
 
 # User specific aliases and functions
 
