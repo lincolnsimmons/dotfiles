@@ -19,6 +19,8 @@ export PATH=~/bin/:$PATH
 export EDITOR=vim
 export PAGER=less
 
+# Silence the "zsh is now default shell" on OSX Catalina
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
