@@ -39,7 +39,8 @@ export PS1="\[\e[1;30m\]\u@\h\[\e[0m\]:\[\e[1;32m\]\w\[\e[0m\]\$(git_branch) \$ 
 alias ls='ls -GF'
 alias ll='ls -lahGF'
 alias e='vim'
-alias ff='find -iname'
+
+alias ff='rg --files | rg'
 
 # Don't attempt to GUI prompt for passwords
 unset SSH_ASKPASS
