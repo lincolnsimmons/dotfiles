@@ -36,8 +36,8 @@ git_branch() {
 export PS1="\[\e[1;30m\]\u@\h\[\e[0m\]:\[\e[1;32m\]\w\[\e[0m\]\$(git_branch) \$ "
 
 # User specific aliases and functions
-alias ls='ls -GF'
-alias ll='ls -lahGF'
+alias ls='ls -F --color=auto'
+alias ll='ls -lahF --color=auto'
 alias e='vim'
 
 alias ff='rg --files | rg'
