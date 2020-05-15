@@ -20,6 +20,7 @@ set nocompatible ruler laststatus=2 showcmd showmode number
 set incsearch ignorecase smartcase hlsearch
 set noswapfile
 set nobackup
+set nowrap
 set hidden
 set bs=indent,eol,start " allow backspacing over anything
 

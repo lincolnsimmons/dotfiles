@@ -34,29 +34,11 @@ git_branch() {
 export PS1="\[\e[1;30m\]\u@\h\[\e[0m\]:\[\e[1;32m\]\w\[\e[0m\]\$(git_branch) \$ "
 
 # User specific aliases and functions
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto -pFh'
-    alias ll='ls --color=auto -lahF'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# Workflow stuff
-alias ssh='ssh -X'
-alias svn='svnwrapper.sh'
-
+alias ls='ls -GF'
+alias ll='ls -lahGF'
 alias e='vim'
-alias ff='find -iname'
+
+alias ff='rg --files | rg'
 
 # Don't attempt to GUI prompt for passwords
 unset SSH_ASKPASS
-
-# Source fuzzy finder tool
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
