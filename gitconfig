@@ -5,7 +5,7 @@
     ui = auto
 [alias]
     st = status
-    plog = log --decorate --oneline --all --graph
+    plog = log --all --graph --pretty=format:'%Cred%h%Creset %C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 [core]
     editor = vim
 	excludesfile = /home/lincoln/.gitignore
